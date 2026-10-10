@@ -1,1 +1,9 @@
-<p>header works!</p>
+<header class="header">
+  <div class="container header-inner">
+    <a routerLink="/" class="logo">🍳 Recipe Finder</a>
+    <nav>
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+      <a routerLink="/favorites" routerLinkActive="active">Favorites</a>
+    </nav>
+  </div>
+</header>
