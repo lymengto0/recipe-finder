@@ -1,1 +1,4 @@
-<p>recipe-card works!</p>
+<a class="card" [routerLink]="['/recipe', meal().id]">
+  <img [src]="meal().thumbnail" [alt]="meal().name" loading="lazy" />
+  <h3>{{ meal().name }}</h3>
+</a>

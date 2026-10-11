@@ -1,5 +1,5 @@
 export interface MealSummary {
-  id: string;
+  id: number;
   name: string;
   thumbnail: string;
 }
@@ -18,7 +18,7 @@ export interface Meal extends MealSummary {
 }
 
 export interface Category {
-  id: string;
+  id: number;
   name: string;
   thumbnail: string;
   description: string;

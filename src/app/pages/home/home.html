@@ -1,1 +1,27 @@
-<p>home works!</p>
+<section class="hero">
+  <h1>Find your next meal</h1>
+  <form class="search" (ngSubmit)="search(query)">
+    <input
+      type="text"
+      name="query"
+      [(ngModel)]="query"
+      placeholder="Search recipes, e.g. pasta, beef, soup..."
+    />
+    <button type="submit">Search</button>
+  </form>
+</section>
+
+@if (loading()) {
+  <p class="message">Loading recipes...</p>
+} @else if (error()) {
+  <p class="message">Something went wrong. Please try again.</p>
+} @else if (meals().length === 0) {
+  <p class="message">No recipes found for "{{ searchedTerm() }}". Try another word.</p>
+} @else {
+  <h2>Results for "{{ searchedTerm() }}"</h2>
+  <div class="grid">
+    @for (meal of meals(); track meal.id) {
+      <app-recipe-card [meal]="meal" />
+    }
+  </div>
+}
