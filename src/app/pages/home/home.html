@@ -11,14 +11,27 @@
   </form>
 </section>
 
+<div class="chips">
+  @for (cat of categories(); track cat.id) {
+    <button
+      type="button"
+      class="chip"
+      [class.active]="selectedCategory() === cat.name"
+      (click)="selectCategory(cat.name)"
+    >
+     {{ cat.name }}
+    </button>
+  }
+</div>
+
 @if (loading()) {
   <p class="message">Loading recipes...</p>
 } @else if (error()) {
   <p class="message">Something went wrong. Please try again.</p>
 } @else if (meals().length === 0) {
-  <p class="message">No recipes found for "{{ searchedTerm() }}". Try another word.</p>
+  <p class="message">No recipes found. Try another word or category.</p>
 } @else {
-  <h2>Results for "{{ searchedTerm() }}"</h2>
+  <h2>{{ heading() }}</h2>
   <div class="grid">
     @for (meal of meals(); track meal.id) {
       <app-recipe-card [meal]="meal" />
