@@ -2,6 +2,7 @@ import { Component, OnInit, inject, signal } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { Meal } from '../../models/meal';
 import { RecipeService } from '../../services/recipe';
+import { FavoritesService } from '../../services/favorites';
 
 @Component({
   selector: 'app-recipe-detail',
@@ -12,6 +13,7 @@ import { RecipeService } from '../../services/recipe';
 export class RecipeDetail implements OnInit {
   private route = inject(ActivatedRoute);
   private recipeService = inject(RecipeService);
+  favorites = inject(FavoritesService)
 
   meal = signal<Meal | null>(null);
   loading = signal(true);

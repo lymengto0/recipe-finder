@@ -2,8 +2,15 @@
   <div class="container header-inner">
     <a routerLink="/" class="logo">🍳 Recipe Finder</a>
     <nav>
-      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
-      <a routerLink="/favorites" routerLinkActive="active">Favorites</a>
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
+        >Home</a
+      >
+      <a routerLink="/favorites" routerLinkActive="active">
+        Favorites
+        @if (count() > 0) {
+          <span class="badge">{{ count() }}</span>
+        }
+      </a>
     </nav>
   </div>
 </header>

@@ -40,3 +40,15 @@ nav a.active {
   color: #ea580c;
   border-bottom: 2px solid #ea580c;
 }
+.badge {
+  display: inline-block;
+  min-width: 20px;
+  padding: 0 6px;
+  margin-left: 4px;
+  background: #ea580c;
+  color: #fff;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-align: center;
+}

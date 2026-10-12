@@ -14,9 +14,16 @@
       <h1>{{ m.name }}</h1>
 
       <div class="tags">
-        @if (m.category) { <span class="tag">{{ m.category }}</span> }
-        @if (m.area) { <span class="tag">{{ m.area }}</span> }
+        @if (m.category) {
+          <span class="tag">{{ m.category }}</span>
+        }
+        @if (m.area) {
+          <span class="tag">{{ m.area }}</span>
+        }
       </div>
+      <button type="button" class="fav-btn" (click)="favorites.toggle(m)">
+        {{ favorites.isFavorite(m.id) ? '♥ Saved to favorites' : '♡ Save to favorites' }}
+      </button>
 
       @if (m.youtubeUrl) {
         <a [href]="m.youtubeUrl" target="_blank" rel="noopener" class="video">

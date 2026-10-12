@@ -1,4 +1,16 @@
-<a class="card" [routerLink]="['/recipe', meal().id]">
-  <img [src]="meal().thumbnail" [alt]="meal().name" loading="lazy" />
-  <h3>{{ meal().name }}</h3>
-</a>
+<div class="wrap">
+  <a class="card" [routerLink]="['/recipe', meal().id]">
+    <img [src]="meal().thumbnail" [alt]="meal().name" loading="lazy" />
+    <h3>{{ meal().name }}</h3>
+  </a>
+
+  <button
+    type="button"
+    class="heart"
+    [class.active]="isFavorite()"
+    [attr.aria-label]="isFavorite() ? 'Remove from favorites' : 'Add to favorites'"
+    (click)="toggleFavorite()"
+  >
+    {{ isFavorite() ? '♥' : '♡' }}
+  </button>
+</div>

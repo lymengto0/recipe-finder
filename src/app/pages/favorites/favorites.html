@@ -1,1 +1,14 @@
-<p>favorites works!</p>
+<h1>Your favorites</h1>
+
+@if (favorites().length === 0) {
+  <div class="empty">
+    <p>You haven't saved any recipes yet.</p>
+    <a routerLink="/">Browse recipes</a>
+  </div>
+} @else {
+  <div class="grid">
+    @for (meal of favorites(); track meal.id) {
+      <app-recipe-card [meal]="meal" />
+    }
+  </div>
+}
