@@ -1,1 +1,43 @@
-<p>recipe-detail works!</p>
+<a routerLink="/" class="back">← Back to recipes</a>
+
+@if (loading()) {
+  <p class="message">Loading recipe...</p>
+} @else if (error() || !meal()) {
+  <p class="message">Recipe not found.</p>
+} @else {
+  @let m = meal()!;
+
+  <article class="detail">
+    <img [src]="m.thumbnail" [alt]="m.name" class="photo" />
+
+    <div class="info">
+      <h1>{{ m.name }}</h1>
+
+      <div class="tags">
+        @if (m.category) { <span class="tag">{{ m.category }}</span> }
+        @if (m.area) { <span class="tag">{{ m.area }}</span> }
+      </div>
+
+      @if (m.youtubeUrl) {
+        <a [href]="m.youtubeUrl" target="_blank" rel="noopener" class="video">
+          ▶ Watch on YouTube
+        </a>
+      }
+
+      <h2>Ingredients</h2>
+      <ul class="ingredients">
+        @for (ing of m.ingredients; track $index) {
+          <li>
+            <span>{{ ing.name }}</span>
+            <span class="measure">{{ ing.measure }}</span>
+          </li>
+        }
+      </ul>
+    </div>
+  </article>
+
+  <section class="instructions">
+    <h2>Instructions</h2>
+    <p>{{ m.instructions }}</p>
+  </section>
+}
