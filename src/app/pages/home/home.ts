@@ -26,7 +26,7 @@ export class Home implements OnInit {
     this.recipeService.getCategories().subscribe({
       next: (cats) => this.categories.set(cats),
     });
-    this.search('chicken'); 
+    this.search('chicken');
   }
 
   search(term: string) {
@@ -42,9 +42,15 @@ export class Home implements OnInit {
     this.query = '';
     this.load(this.recipeService.getMealsByCategory(name), `${name} recipes`);
   }
+  skeletons = [1, 2, 3, 4, 5, 6, 7, 8];
+  private retryAction: () => void = () => {};
 
+  retry() {
+    this.retryAction();
+  }
   // handle loading error success
   private load(request: Observable<MealSummary[]>, heading: string) {
+    this.retryAction = () => this.load(request, heading);
     this.loading.set(true);
     this.error.set(false);
     this.heading.set(heading);

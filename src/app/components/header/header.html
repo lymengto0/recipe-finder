@@ -11,6 +11,16 @@
           <span class="badge">{{ count() }}</span>
         }
       </a>
+      <button
+        type="button"
+        class="theme-btn"
+        (click)="themeService.toggle()"
+        [attr.aria-label]="
+          themeService.theme() === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'
+        "
+      >
+        {{ themeService.theme() === 'dark' ? '☀️' : '🌙' }}
+      </button>
     </nav>
   </div>
 </header>

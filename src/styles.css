@@ -1,8 +1,35 @@
 /* You can add global styles to this file, and also import other style files */
+
 * {
   box-sizing: border-box;
 }
+:root {
+  --bg: #f9fafb;
+  --surface: #ffffff;
+  --text: #111827;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+  --border-strong: #d1d5db;
+  --chip-text: #374151;
+  --tag-bg: #ffedd5;
+  --tag-text: #c2410c;
+  --danger-bg: #fef2f2;
+  color-scheme: light;
+}
 
+:root[data-theme='dark'] {
+  --bg: #0f172a;
+  --surface: #1e293b;
+  --text: #f1f5f9;
+  --muted: #94a3b8;
+  --border: #334155;
+  --border-strong: #475569;
+  --chip-text: #cbd5e1;
+  --tag-bg: #431407;
+  --tag-text: #fdba74;
+  --danger-bg: #3f1d1d;
+  color-scheme: dark;
+}
 body {
   margin: 0;
   font-family:
@@ -10,8 +37,8 @@ body {
     -apple-system,
     'Segoe UI',
     sans-serif;
-  background: #f9fafb;
-  color: #111827;
+  background: var(--bg);
+  color: var(--text);
 }
 
 .container {

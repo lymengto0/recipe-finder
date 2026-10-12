@@ -10,7 +10,7 @@ h1 {
 
 .empty {
   text-align: center;
-  color: #6b7280;
+  color: var(--muted);
   padding: 3rem 0;
 }
 

@@ -19,15 +19,25 @@
       [class.active]="selectedCategory() === cat.name"
       (click)="selectCategory(cat.name)"
     >
-     {{ cat.name }}
+      {{ cat.name }}
     </button>
   }
 </div>
 
 @if (loading()) {
-  <p class="message">Loading recipes...</p>
+  <div class="grid">
+    @for (i of skeletons; track i) {
+      <div class="skeleton">
+        <div class="img"></div>
+        <div class="line"></div>
+      </div>
+    }
+  </div>
 } @else if (error()) {
-  <p class="message">Something went wrong. Please try again.</p>
+  <div class="message">
+    <p>Something went wrong. Is the API running?</p>
+    <button type="button" class="retry" (click)="retry()">Try again</button>
+  </div>
 } @else if (meals().length === 0) {
   <p class="message">No recipes found. Try another word or category.</p>
 } @else {
