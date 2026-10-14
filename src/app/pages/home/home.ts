@@ -26,7 +26,7 @@ export class Home implements OnInit {
     this.recipeService.getCategories().subscribe({
       next: (cats) => this.categories.set(cats),
     });
-    this.search('chicken');
+    this.search('chicken'); // default search
   }
 
   search(term: string) {

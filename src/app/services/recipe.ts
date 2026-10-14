@@ -2,8 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Category, Meal, MealSummary } from '../models/meal';
+import { environment } from '../../environments/environment';
 
-const API_URL = 'http://localhost:5207/api';
+const API_URL = environment.apiUrl;
 
 @Injectable({ providedIn: 'root' })
 export class RecipeService {
