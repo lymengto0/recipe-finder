@@ -6,8 +6,5 @@ import { provideClientHydration, withEventReplay } from '@angular/platform-brows
 import { provideHttpClient } from '@angular/common/http';
 
 export const appConfig: ApplicationConfig = {
-  providers: [
-    provideBrowserGlobalErrorListeners(),
-    provideHttpClient(),
-  ]
+  providers: [provideBrowserGlobalErrorListeners(), provideRouter(routes), provideHttpClient()],
 };
