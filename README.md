@@ -1,59 +1,55 @@
-# RecipeFinder
+# Recipe Finder
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.7.
+A full-stack recipe browsing app. Search recipes, filter by category, view
+ingredients and instructions, and save favorites.
 
-## Development server
+**Live demo:** https://lymeng-recipe-finder.netlify.app
+**API repository:** https://github.com/lymengto0/recipe-api
 
-To start a local development server, run:
+> The API runs on a free hosting plan and sleeps when idle. The first load
+> after a quiet period can take up to a minute while it wakes up.
 
-```bash
-ng serve
-```
+![Home page](screenshots/home.png)
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Features
 
-## Code scaffolding
+- Search recipes by name
+- Filter by category
+- Recipe detail page with ingredients, instructions, and a video link
+- Favorites saved in the browser (localStorage), with a live counter
+- Dark mode that remembers your choice
+- Loading skeletons, error handling with retry, and a responsive layout
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Tech stack
 
-```bash
-ng generate component component-name
-```
+**Frontend:** Angular, TypeScript, Signals, RxJS, Angular Router, CSS
+**Backend:** ASP.NET Core Web API, Entity Framework Core
+**Database:** MySQL
+**Hosting:** Netlify (frontend), Render (API), Aiven (database)
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Architecture
 
-```bash
-ng generate --help
-```
+Angular (Netlify) → ASP.NET Core API (Render) → MySQL (Aiven)
 
-## Building
+## Run it locally
 
-To build the project run:
+You need Node.js, the Angular CLI, and the API from the repository linked above.
 
-```bash
-ng build
-```
+1. Start the API (see its README for database setup)
+2. Then:
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+    git clone git@github.com:lymengto0/recipe-finder.git
+    cd recipe-finder
+    npm install
+    ng serve
 
-## Running unit tests
+Open http://localhost:4200. In development, the app calls the API at
+http://localhost:5207/api (see src/environments).
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+## What I learned
 
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- Structuring an Angular app with standalone components, services, and routing
+- Managing state with signals
+- Building a REST API with ASP.NET Core and EF Core migrations
+- Deploying a full-stack app across three hosting services, including CORS
+  and environment configuration
